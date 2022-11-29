@@ -1,0 +1,58 @@
+<form #form="ngForm" (ngSubmit)="ajouter()" >
+    
+    <h2>{{titreg}}</h2>
+    Email : <input class="form-control" type="text" name="email" [(ngModel)]="Driven.email" #emaill="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"> 
+ 
+    <div  class="alert alert-danger" *ngIf="emaill.touched && emaill.invalid">
+        <div *ngIf="emaill.errors?.['pattern']">email non valide</div>
+        <div *ngIf="emaill.errors?.['required']">email is required</div> 
+    </div>
+    
+    Nom : <input class="form-control" type="text" name="nom"[(ngModel)]="Driven.Nom"  #Nom="ngModel" required   >
+    <div class="alert alert-danger" *ngIf="Nom.touched && Nom.invalid">
+    <div *ngIf="Nom.errors?.['required']">Nom is required</div> 
+    </div>
+    
+    <h5>{{titrep}}</h5>
+
+    Type de carte : <input class="form-control" type="text" name="type de carte"[(ngModel)]="Driven.typecarte"  #Typecarte="ngModel" required   >
+    <div class="alert alert-danger" *ngIf="Typecarte.touched && Typecarte.invalid">
+    <div *ngIf="Typecarte.errors?.['required']">Type de carte is required</div> 
+    </div>
+    
+    Numéro carte : <input class="form-control" type="number" name="title"[(ngModel)]="Driven.numerocarte"  #Numcarte="ngModel" required pattern="[0-9]{16}" >
+    <div class="alert alert-danger" *ngIf="Numcarte.touched && Numcarte.invalid">
+    <div *ngIf="Numcarte.errors?.['required']"> Numéro carte is required</div>
+    <div  *ngIf="Numcarte.errors?.['pattern']"> Numéro carte must have 16 chiffres </div>
+    </div>
+
+    Date expiration : <input class="form-control" type="date" name="dateexp"[(ngModel)]="Driven.dateex"  #Dateex="ngModel" required    >
+    <div class="alert alert-danger" *ngIf="Dateex.touched && Dateex.invalid">
+    <div *ngIf="Dateex.errors?.['required']">Date expiration is required</div> 
+    </div>
+
+
+       <div>
+            <label  *ngIf="  Numcarte.valid && Typecarte.valid && Dateex.valid "> Code :</label>
+       
+    <input class="form-control" type="number" name="code"[(ngModel)]="Driven.code"  #Code="ngModel"  *ngIf="  Numcarte.valid && Typecarte.valid && Dateex.valid " >
+    </div>
+    
+    
+    
+
+    <input  class="btn btn-primary" type="submit" value="Ajouter" [disabled]="form.invalid">
+
+</form>
+<h2>{{titreg}}</h2>
+{{Driven.email}}
+<br>
+{{Driven.Nom}}
+<h5>{{titrep}}</h5>
+{{Driven.typecarte}}
+<br>
+{{Driven.numerocarte}}
+<br>
+{{Driven.dateex}}
+<br>
+{{Driven.code}}
