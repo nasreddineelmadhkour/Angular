@@ -6,15 +6,18 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { OffresEmploiComponentComponent } from './offres-emploi-component/offres-emploi-component.component';
 import { ProductComponent } from './product/product.component';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
 
 const routes: Routes = [
   {path:'products',component:ProductComponent},
   {path:'emploi',component:OffresEmploiComponentComponent},
   {path:'articles',component:ArticlesComponent},
   {path:'add',component:AddProductComponent},
+  {path:'todo',component:TodoListComponent},
   {path:'',redirectTo:'products',pathMatch:'full'},
   {path:'template-driven-form',component:TemplateDrivenFormComponent},
   {path:'**',component:NotFoundComponent},
+  
   
 ];
 

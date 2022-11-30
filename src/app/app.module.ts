@@ -12,6 +12,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TemplateDrivenFormComponent } from './template-driven-form/template-dri
     NotFoundComponent,
     ArticlesComponent,
     AddProductComponent,
-    TemplateDrivenFormComponent
+    TemplateDrivenFormComponent,
+    TodoListComponent
   ],
   imports: [
     BrowserModule,
