@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
-import { filter } from 'rxjs';
-
-@Injectable({
+ @Injectable({
   providedIn: 'root'
 })
-export class CalculServiceService {
+export class CalculService {
 
   constructor() { }
 
   getNumberOf(list:any[], critiria:string, value:any){
-    
-    return list.filter((v)=>v[critiria]==value).length
 
+    return list.filter((v)=> v[critiria] == value) .length; 
   }
-
+ 
 }

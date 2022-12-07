@@ -1,27 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from '../core/product';
-import { ProductService } from '../services/product.service';
 import { ProductCosumerService } from '../services/product-cosumer.service';
+import { ProductService } from '../services/product.service';
 
 @Component({
-  selector: 'app-add-product',
-  templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.css']
+  selector: 'app-modifier-product',
+  templateUrl: './modifier-product.component.html',
+  styleUrls: ['./modifier-product.component.css']
 })
-export class AddProductComponent implements OnInit {
+export class ModifierProductComponent implements OnInit {
   product!:Product;
   email!:string
-  
+  id!:string
+
   constructor(private _productService: ProductService,private _router:Router,private productConsumer:ProductCosumerService) { }
 
   ngOnInit(): void {
     this.product = new Product();
+
   }
 
-  ajouter(){
-    //this._productService.addProduct(this.product)
-    this.productConsumer.addProduct(this.product).subscribe({
+  modifier(){
+    this.productConsumer.updateProduct(this.product).subscribe({
       next: ()=>this._router.navigateByUrl('/products'),
       error: (error)=>console.log(error),
       complete:()=>console.log("I m finishing")
@@ -30,5 +31,4 @@ export class AddProductComponent implements OnInit {
     // => routerLink="/products" HTML
     console.log(this.product)
   }
-
 }

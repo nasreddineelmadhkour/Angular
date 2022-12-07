@@ -1,8 +1,8 @@
-export class Product{
+export class Product {
     id!:string;
-    title!:string
+    title!:string;
     quantity!:number;
     price!:number;
     like!:number;
-    picture!:string
+    picture!:string;
 }
